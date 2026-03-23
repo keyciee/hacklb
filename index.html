@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HackLB — The Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Barlow:wght@300;400;500&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black:   #111110;
+    --off-black: #1C1C1A;
+    --dark:    #2A2925;
+    --mid:     #6B6760;
+    --light:   #B0ADA8;
+    --cream:   #F4F1EC;
+    --white:   #FAFAF8;
+    --accent:  #C8352A;
+    --border:  rgba(17,17,16,0.1);
+  }
+
+  html, body {
+    height: 100%;
+    background: var(--white);
+    color: var(--black);
+    font-family: 'Barlow', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Thin top rule */
+  .top-rule {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--black);
+    z-index: 100;
+  }
+
+  /* Left edge */
+  .left-panel {
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    width: 4px;
+    background: var(--black);
+    z-index: 50;
+  }
+
+  .page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    padding: 0 6vw 0 calc(6vw + 4px);
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  /* Header */
+  header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 3rem 0 2rem;
+    border-bottom: 2px solid var(--black);
+    opacity: 0;
+    animation: appear 0.5s ease 0.1s forwards;
+  }
+
+  .logo-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+  .logo-text .lb { color: var(--accent); }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .header-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+
+  /* Hero */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 6vw;
+    align-items: start;
+    padding: 5vh 0 4vh;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .issue-line {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: appear 0.5s ease 0.25s forwards;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .issue-line::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 2px;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(4.5rem, 10vw, 9.5rem);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    opacity: 0;
+    animation: appear 0.7s ease 0.35s forwards;
+  }
+
+  .headline em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .headline .hollow {
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(17,17,16,0.15);
+  }
+
+  .tagline {
+    margin-top: 3rem;
+    max-width: 520px;
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--dark);
+    opacity: 0;
+    animation: appear 0.5s ease 0.55s forwards;
+    border-left: 2px solid var(--border);
+    padding-left: 1.5rem;
+  }
+  .tagline strong { font-weight: 500; color: var(--black); }
+
+  /* Countdown */
+  .countdown-wrap {
+    margin-top: 3.5rem;
+    opacity: 0;
+    animation: appear 0.5s ease 0.65s forwards;
+  }
+
+  .countdown-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 1.2rem;
+  }
+
+  .countdown {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .cd-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-right: 2.5rem;
+    border-right: 1px solid var(--border);
+    margin-right: 2.5rem;
+  }
+  .cd-unit:last-child {
+    border-right: none;
+    margin-right: 0;
+    padding-right: 0;
+  }
+
+  .cd-num {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: var(--black);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .cd-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.55rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: var(--light);
+    text-transform: uppercase;
+    margin-top: 0.4rem;
+  }
+
+  /* Email form */
+  .form-wrap {
+    margin-top: 3.5rem;
+    opacity: 0;
+    animation: appear 0.5s ease 0.75s forwards;
+  }
+
+  .form-row {
+    display: flex;
+    max-width: 460px;
+    border-bottom: 2px solid var(--black);
+  }
+
+  .email-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--black);
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    padding: 0.85rem 0;
+    outline: none;
+    letter-spacing: 0.03em;
+  }
+  .email-input::placeholder { color: var(--light); }
+
+  .submit-btn {
+    background: var(--black);
+    color: var(--white);
+    border: none;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    padding: 0.85rem 1.4rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .submit-btn:hover { background: var(--accent); }
+
+  .form-note {
+    margin-top: 0.8rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    color: var(--light);
+    text-transform: uppercase;
+  }
+
+  .success-msg {
+    display: none;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    margin-top: 0.9rem;
+    text-transform: uppercase;
+  }
+
+  /* Right — node manifest */
+  .node-panel {
+    opacity: 0;
+    animation: appear 0.5s ease 0.5s forwards;
+    padding-top: 0.5rem;
+  }
+
+  .panel-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--mid);
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--black);
+  }
+
+  .node-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .node-row:last-child { border-bottom: none; }
+  .node-row.offline { opacity: 0.3; }
+
+  .node-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--black);
+    line-height: 1;
+  }
+  .node-name span { color: var(--accent); }
+
+  .node-loc {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 300;
+    color: var(--mid);
+    margin-top: 0.2rem;
+  }
+
+  .node-status {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--light);
+  }
+  .node-status .dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--light);
+  }
+  .node-status.active .dot {
+    background: var(--accent);
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+  .node-status.active { color: var(--mid); }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.25; }
+  }
+
+  /* Stats strip */
+  .stats-strip {
+    display: flex;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: appear 0.5s ease 0.6s forwards;
+  }
+  .stat-item {
+    flex: 1;
+    padding: 1.5rem 0;
+    border-right: 1px solid var(--border);
+    text-align: center;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--black);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .stat-key {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-top: 0.35rem;
+  }
+
+  /* LB watermark */
+  .watermark {
+    position: fixed;
+    right: -2vw;
+    bottom: -6vh;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(14rem, 32vw, 36rem);
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(17,17,16,0.04);
+    pointer-events: none;
+    line-height: 1;
+    z-index: 0;
+    letter-spacing: -0.02em;
+    user-select: none;
+  }
+
+  /* Footer */
+  footer {
+    padding: 2rem 0;
+    border-top: 2px solid var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 0;
+    animation: appear 0.5s ease 0.9s forwards;
+  }
+
+  .footer-left {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    color: var(--mid);
+    text-transform: uppercase;
+  }
+
+  .footer-right {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .footer-link {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    color: var(--mid);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .footer-link:hover { color: var(--black); }
+
+  @keyframes appear {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .node-panel { border-top: 1px solid var(--border); padding-top: 2rem; margin-top: 1rem; }
+  }
+  @media (max-width: 600px) {
+    .header-tag { display: none; }
+    .footer-right { gap: 1.2rem; }
+    .stat-item { padding: 1.2rem 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+<div class="left-panel"></div>
+<div class="watermark">LB</div>
+
+<div class="page">
+
+  <header>
+    <div class="logo-text">Hack<span class="lb">LB</span></div>
+    <div class="header-right">
+      <span class="header-tag">Global Headquarters</span>
+      <span class="header-tag">Est. 2025</span>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+
+      <div class="hero-left">
+        <p class="issue-line">The command layer</p>
+
+        <h1 class="headline">
+          The<br/>
+          <em>Lab.</em>
+        </h1>
+
+        <p class="tagline">
+          HackLB is the <strong>central node</strong> — the common ground beneath every chapter. One standard. One mission. Many cities. <strong>Built to last.</strong>
+        </p>
+
+        <div class="countdown-wrap">
+          <p class="countdown-label">Launching in</p>
+          <div class="countdown">
+            <div class="cd-unit">
+              <span class="cd-num" id="days">00</span>
+              <span class="cd-label">Days</span>
+            </div>
+            <div class="cd-unit">
+              <span class="cd-num" id="hours">00</span>
+              <span class="cd-label">Hours</span>
+            </div>
+            <div class="cd-unit">
+              <span class="cd-num" id="mins">00</span>
+              <span class="cd-label">Min</span>
+            </div>
+            <div class="cd-unit">
+              <span class="cd-num" id="secs">00</span>
+              <span class="cd-label">Sec</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-wrap">
+          <div class="form-row">
+            <input class="email-input" type="email" id="emailInput" placeholder="your@email.com" />
+            <button class="submit-btn" onclick="handleNotify()">Notify me</button>
+          </div>
+          <p class="form-note">No noise. We write when it matters.</p>
+          <p class="success-msg" id="successMsg">— Confirmed. We'll be in touch.</p>
+        </div>
+      </div>
+
+      <!-- Node manifest -->
+      <div class="node-panel">
+        <p class="panel-title">Active Nodes</p>
+
+        <div class="node-row">
+          <div>
+            <div class="node-name">Hack<span>PH</span></div>
+            <div class="node-loc">Manila, Philippines</div>
+          </div>
+          <div class="node-status active">
+            <div class="dot"></div>Standby
+          </div>
+        </div>
+
+        <div class="node-row">
+          <div>
+            <div class="node-name">Hack<span>CH</span></div>
+            <div class="node-loc">Zürich, Switzerland</div>
+          </div>
+          <div class="node-status active">
+            <div class="dot"></div>Standby
+          </div>
+        </div>
+
+        <div class="node-row">
+          <div>
+            <div class="node-name">Hack<span>JP</span></div>
+            <div class="node-loc">Tokyo, Japan</div>
+          </div>
+          <div class="node-status active">
+            <div class="dot"></div>Standby
+          </div>
+        </div>
+
+        <div class="node-row offline">
+          <div>
+            <div class="node-name" style="color:var(--light);">Hack<span style="color:var(--light);">??</span></div>
+            <div class="node-loc">Next city — TBA</div>
+          </div>
+          <div class="node-status">
+            <div class="dot"></div>Offline
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-strip">
+      <div class="stat-item">
+        <div class="stat-val">03</div>
+        <div class="stat-key">Nodes</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-val">03</div>
+        <div class="stat-key">Countries</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-val">01</div>
+        <div class="stat-key">Lab</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-val">∞</div>
+        <div class="stat-key">Builders</div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="footer-left">hacklb.com &nbsp;·&nbsp; All rights reserved &nbsp;·&nbsp; 2025</div>
+    <div class="footer-right">
+      <a href="#" class="footer-link">Twitter</a>
+      <a href="#" class="footer-link">LinkedIn</a>
+      <a href="mailto:hello@hacklb.com" class="footer-link">Contact</a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  const launch = new Date();
+  launch.setDate(launch.getDate() + 90);
+  launch.setHours(0, 0, 0, 0);
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  function tick() {
+    const diff = launch - new Date();
+    if (diff <= 0) return;
+    document.getElementById('days').textContent  = pad(Math.floor(diff / 86400000));
+    document.getElementById('hours').textContent = pad(Math.floor((diff % 86400000) / 3600000));
+    document.getElementById('mins').textContent  = pad(Math.floor((diff % 3600000) / 60000));
+    document.getElementById('secs').textContent  = pad(Math.floor((diff % 60000) / 1000));
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  function handleNotify() {
+    const input = document.getElementById('emailInput');
+    if (!input.value || !input.value.includes('@')) {
+      input.style.color = 'var(--accent)';
+      input.focus();
+      setTimeout(() => { input.style.color = ''; }, 2000);
+      return;
+    }
+    document.getElementById('successMsg').style.display = 'block';
+    input.value = '';
+    input.placeholder = 'confirmed';
+    input.disabled = true;
+    const btn = document.querySelector('.submit-btn');
+    btn.disabled = true;
+    btn.textContent = 'Done';
+    btn.style.background = 'var(--dark)';
+  }
+
+  document.getElementById('emailInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') handleNotify();
+  });
+</script>
+</body>
+</html>
