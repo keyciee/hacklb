@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <!-- SEO -->
-<title>HackLB — Premium Post-Quantum Domains & Cybersecurity Assets For Sale</title>
-<meta name="description" content="Browse 17 premium .com domains for sale — including post-quantum domains (pqagents, pqlogin, pqmachine) and cybersecurity assets (secureph, hackacad, howtoctf). Buy now or lease via Spaceship." />
-<meta name="keywords" content="post-quantum domains, cybersecurity assets, premium domains for sale, domain portfolio, buy domain, lease domain, pqagents, secureph, hackacad, howtoctf, spaceship domains" />
+<title>HackLB</title>
+<meta name="description" content="Browse 20 premium .com domains for sale — including post-quantum domains (pqagents, pqlogin, pqmachine), cybersecurity assets (secureph, hackacad, howtoctf), and aviation brands (voltairlines, voltairline). Buy now or lease via Spaceship." />
+<meta name="keywords" content="post-quantum domains, cybersecurity assets, premium domains for sale, domain portfolio, buy domain, lease domain, pqagents, secureph, hackacad, howtoctf, voltairlines, voltairline, spaceship domains" />
 <meta name="robots" content="index, follow" />
 
 <!-- Open Graph -->
-<meta property="og:title" content="HackLB — Premium Post-Quantum Domains & Cybersecurity Assets" />
-<meta property="og:description" content="17 premium .com domains across security, authentication, hacking, and post-quantum verticals. Buy now or lease via Spaceship." />
+<meta property="og:title" content="HackLB — Premium Domains Across Security, Post-Quantum & Aviation" />
+<meta property="og:description" content="20 premium .com domains across security, authentication, hacking, post-quantum, and aviation verticals. Buy now or lease via Spaceship." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://hacklb.com" />
 
@@ -343,6 +343,46 @@
     color: #fff;
   }
 
+  /* ── CATEGORY LABEL ── */
+  .category-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-head);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin-bottom: 2px;
+    width: fit-content;
+  }
+
+  .cat-security {
+    color: #f97316;
+    background: rgba(249, 115, 22, 0.08);
+    border: 1px solid rgba(249, 115, 22, 0.2);
+  }
+
+  .cat-pq {
+    color: #a78bfa;
+    background: rgba(167, 139, 250, 0.08);
+    border: 1px solid rgba(167, 139, 250, 0.2);
+  }
+
+  .cat-auth {
+    color: #34d399;
+    background: rgba(52, 211, 153, 0.08);
+    border: 1px solid rgba(52, 211, 153, 0.2);
+  }
+
+  .cat-aviation {
+    color: #60a5fa;
+    background: rgba(96, 165, 250, 0.08);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+  }
+
   /* ── FOOTER ── */
   footer {
     padding: 48px 40px;
@@ -380,19 +420,16 @@
      RESPONSIVE
   ──────────────────────────────────────── */
 
-  /* Tablet → 2 columns */
   @media (max-width: 1024px) {
     .grid { grid-template-columns: repeat(2, 1fr); }
   }
 
-  /* Mobile → 1 column */
   @media (max-width: 640px) {
     nav {
       padding: 0 16px;
       height: 60px;
     }
 
-    /* Hide URL text in nav — brand already communicates it */
     .nav-meta { display: none; }
 
     .hero {
@@ -415,7 +452,6 @@
       padding: 28px 16px 16px;
     }
 
-    /* Single column, no gaps between cards */
     .grid {
       grid-template-columns: 1fr;
     }
@@ -429,7 +465,6 @@
 
     .card-pricing { gap: 12px; }
 
-    /* Full-width tap target on mobile */
     .btn-acquire {
       display: block;
       text-align: center;
@@ -439,7 +474,6 @@
     footer { padding: 36px 20px; }
   }
 
-  /* Very small screens */
   @media (max-width: 360px) {
     .brand-name { font-size: 15px; }
     .logo-wrap { width: 36px; height: 36px; }
@@ -453,11 +487,6 @@
 <nav>
   <a class="brand" href="#">
     <div class="logo-wrap">
-      <!--
-        LOGO SWAP: Replace the .logo-placeholder div below with:
-        <img src="your-logo.png" alt="HackLB Logo" />
-        Container: 42×42px · Logo renders at 34×34px · Transparent PNG supported.
-      -->
       <div class="logo-placeholder">
         <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="1" y="1" width="26" height="26" rx="6" stroke="#00D1FF" stroke-width="1.5"/>
@@ -475,10 +504,10 @@
 <section class="hero">
   <span class="hero-eyebrow">Domain Portfolio</span>
   <h1>Premium Domains.<br/>Ready to Deploy.</h1>
-  <p>A curated collection of high-value .com domains across security, authentication, hacking, and post-quantum technology verticals. Each domain is listed on Spaceship.</p>
+  <p>A curated collection of high-value .com domains across security, authentication, hacking, post-quantum technology, and aviation verticals. Each domain is listed on Spaceship.</p>
   <div class="hero-stats">
     <div class="stat">
-      <div class="stat-num">17</div>
+      <div class="stat-num">20</div>
       <div class="stat-label">Domains Listed</div>
     </div>
     <div class="stat">
@@ -500,32 +529,27 @@
 
 <div class="section-header">
   <span class="section-tag">All Domains</span>
-  <span class="section-count">17 Available</span>
+  <span class="section-count">20 Available</span>
 </div>
 
 <!-- DOMAIN GRID -->
 <div class="grid">
 
+  <!-- AUTH CLUSTER -->
   <div class="card">
     <div class="card-top">
       <span class="domain-name">AUTHAE.COM</span>
       <span class="available-badge">Available</span>
     </div>
+    <span class="category-label cat-auth">Auth</span>
     <p class="card-pitch">A sharp identity for authentication platforms targeting the UAE market. Ideal for fintech, SaaS login infrastructure, or identity verification services.</p>
     <div class="card-pricing">
       <div class="price-item">
-        <span class="price-label">Buy Now</span>
-        <span class="price-value">$18,500</span>
-      </div>
-      <div class="price-divider"></div>
-      <div class="price-item">
-        <span class="price-label">Lease</span>
-        <span class="price-value">$917<span class="lease-note">/mo</span></span>
-        <span class="lease-note">$1,500 upfront · 24 mo</span>
+        <span class="price-label">MAKE AN OFFER</span>
       </div>
     </div>
     <div class="card-action">
-      <a class="btn-acquire" href="https://www.authae.com" target="_blank" rel="noopener">Acquire via Spaceship →</a>
+      <a class="btn-acquire" href="https://www.spaceship.com/domain-search/?query=authae.com&beast=false&tab=domains" target="_blank" rel="noopener">Acquire via Spaceship →</a>
     </div>
   </div>
 
@@ -534,21 +558,15 @@
       <span class="domain-name">AUTHCH.COM</span>
       <span class="available-badge">Available</span>
     </div>
+    <span class="category-label cat-auth">Auth</span>
     <p class="card-pitch">Auth meets Switzerland — a premium domain for secure authentication or identity platforms with a European or financial-grade positioning.</p>
     <div class="card-pricing">
       <div class="price-item">
-        <span class="price-label">Buy Now</span>
-        <span class="price-value">$15,500</span>
-      </div>
-      <div class="price-divider"></div>
-      <div class="price-item">
-        <span class="price-label">Lease</span>
-        <span class="price-value">$646<span class="lease-note">/mo</span></span>
-        <span class="lease-note">$1,500 upfront · 24 mo</span>
+        <span class="price-label">MAKE AN OFFER</span>
       </div>
     </div>
     <div class="card-action">
-      <a class="btn-acquire" href="https://www.authch.com" target="_blank" rel="noopener">Acquire via Spaceship →</a>
+      <a class="btn-acquire" href="https://www.spaceship.com/domain-search/?query=authch.com&beast=false&tab=domains" target="_blank" rel="noopener">Acquire via Spaceship →</a>
     </div>
   </div>
 
@@ -557,44 +575,33 @@
       <span class="domain-name">AUTHDE.COM</span>
       <span class="available-badge">Available</span>
     </div>
+    <span class="category-label cat-auth">Auth</span>
     <p class="card-pitch">Authentication for the German-speaking market. Perfect for enterprise identity providers, OAuth platforms, or B2B security tooling.</p>
     <div class="card-pricing">
       <div class="price-item">
-        <span class="price-label">Buy Now</span>
-        <span class="price-value">$11,500</span>
-      </div>
-      <div class="price-divider"></div>
-      <div class="price-item">
-        <span class="price-label">Lease</span>
-        <span class="price-value">$563<span class="lease-note">/mo</span></span>
-        <span class="lease-note">$1,500 upfront · 24 mo</span>
+        <span class="price-label">MAKE AN OFFER</span>
       </div>
     </div>
     <div class="card-action">
-      <a class="btn-acquire" href="https://www.authde.com" target="_blank" rel="noopener">Acquire via Spaceship →</a>
+      <a class="btn-acquire" href="https://www.spaceship.com/domain-search/?query=authde.com&beast=false&tab=domains" target="_blank" rel="noopener">Acquire via Spaceship →</a>
     </div>
   </div>
 
+  <!-- HACK CLUSTER -->
   <div class="card">
     <div class="card-top">
       <span class="domain-name">HACKACAD.COM</span>
       <span class="available-badge">Available</span>
     </div>
+    <span class="category-label cat-security">Security</span>
     <p class="card-pitch">The definitive domain for a hacking academy or cybersecurity training platform. Short, memorable, and built for the next-gen security education market.</p>
     <div class="card-pricing">
       <div class="price-item">
-        <span class="price-label">Buy Now</span>
-        <span class="price-value">$19,500</span>
-      </div>
-      <div class="price-divider"></div>
-      <div class="price-item">
-        <span class="price-label">Lease</span>
-        <span class="price-value">$917<span class="lease-note">/mo</span></span>
-        <span class="lease-note">$2,000 upfront · 24 mo</span>
+        <span class="price-label">MAKE AN OFFER</span>
       </div>
     </div>
     <div class="card-action">
-      <a class="btn-acquire" href="https://www.hackacad.com" target="_blank" rel="noopener">Acquire via Spaceship →</a>
+      <a class="btn-acquire" href="https://www.spaceship.com/domain-search/?query=hackacad.com&beast=false&tab=domains" target="_blank" rel="noopener">Acquire via Spaceship →</a>
     </div>
   </div>
 
@@ -603,21 +610,15 @@
       <span class="domain-name">HACKAE.COM</span>
       <span class="available-badge">Available</span>
     </div>
+    <span class="category-label cat-security">Security</span>
     <p class="card-pitch">Hacking in the UAE context — ideal for regional CTF events, cybersecurity conferences, or a Middle East-focused infosec community or platform.</p>
     <div class="card-pricing">
       <div class="price-item">
-        <span class="price-label">Buy Now</span>
-        <span class="price-value">$15,000</span>
-      </div>
-      <div class="price-divider"></div>
-      <div class="price-item">
-        <span class="price-label">Lease</span>
-        <span class="price-value">$729<span class="lease-note">/mo</span></span>
-        <span class="lease-note">$1,000 upfront · 24 mo</span>
+        <span class="price-label">MAKE AN OFFER</span>
       </div>
     </div>
     <div class="card-action">
-      <a class="btn-acquire" href="https://www.hackae.com" target="_blank" rel="noopener">Acquire via Spaceship →</a>
+      <a class="btn-acquire" href="https://www.spaceship.com/domain-search/?query=hackae.com&beast=false&tab=domains" target="_blank" rel="noopener">Acquire via Spaceship →</a>
     </div>
   </div>
 
@@ -626,21 +627,15 @@
       <span class="domain-name">HACKCA.COM</span>
       <span class="available-badge">Available</span>
     </div>
+    <span class="category-label cat-security">Security</span>
     <p class="card-pitch">Canada's premier hacking brand. A clean, broad domain for a Canadian cybersecurity firm, hackathon organization, or ethical hacking community.</p>
     <div class="card-pricing">
       <div class="price-item">
-        <span class="price-label">Buy Now</span>
-        <span class="price-value">$10,500</span>
-      </div>
-      <div class="price-divider"></div>
-      <div class="price-item">
-        <span class="price-label">Lease</span>
-        <span class="price-value">$448<span class="lease-note">/mo</span></span>
-        <span class="lease-note">$150 upfront · 24 mo</span>
+        <span class="price-label">MAKE AN OFFER</span>
       </div>
     </div>
     <div class="card-action">
-      <a class="btn-acquire" href="https://www.hackca.com" target="_blank" rel="noopener">Acquire via Spaceship →</a>
+      <a class="btn-acquire" href="https://www.spaceship.com/domain-search/?query=hackca.com&beast=false&tab=domains" target="_blank" rel="noopener">Acquire via Spaceship →</a>
     </div>
   </div>
 
@@ -649,21 +644,15 @@
       <span class="domain-name">HACKCH.COM</span>
       <span class="available-badge">Available</span>
     </div>
+    <span class="category-label cat-security">Security</span>
     <p class="card-pitch">Precision and neutrality — a domain for Swiss-based or internationally positioned security research, responsible disclosure, or hacking events.</p>
     <div class="card-pricing">
       <div class="price-item">
-        <span class="price-label">Buy Now</span>
-        <span class="price-value">$13,500</span>
-      </div>
-      <div class="price-divider"></div>
-      <div class="price-item">
-        <span class="price-label">Lease</span>
-        <span class="price-value">$271<span class="lease-note">/mo</span></span>
-        <span class="lease-note">$250 upfront · 48 mo</span>
+        <span class="price-label">MAKE AN OFFER</span>
       </div>
     </div>
     <div class="card-action">
-      <a class="btn-acquire" href="https://www.hackch.com" target="_blank" rel="noopener">Acquire via Spaceship →</a>
+      <a class="btn-acquire" href="https://www.spaceship.com/domain-search/?query=hackch.com&beast=false&tab=domains" target="_blank" rel="noopener">Acquire via Spaceship →</a>
     </div>
   </div>
 
@@ -672,21 +661,15 @@
       <span class="domain-name">HACKEAST.COM</span>
       <span class="available-badge">Available</span>
     </div>
+    <span class="category-label cat-security">Security</span>
     <p class="card-pitch">The hacking hub for Southeast and East Asia. A broad, geo-branded domain perfect for regional infosec events, training platforms, or security media.</p>
     <div class="card-pricing">
       <div class="price-item">
-        <span class="price-label">Buy Now</span>
-        <span class="price-value">$15,000</span>
-      </div>
-      <div class="price-divider"></div>
-      <div class="price-item">
-        <span class="price-label">Lease</span>
-        <span class="price-value">$302<span class="lease-note">/mo</span></span>
-        <span class="lease-note">$250 upfront · 48 mo</span>
+        <span class="price-label">MAKE AN OFFER</span>
       </div>
     </div>
     <div class="card-action">
-      <a class="btn-acquire" href="https://www.hackeast.com" target="_blank" rel="noopener">Acquire via Spaceship →</a>
+      <a class="btn-acquire" href="https://www.spaceship.com/domain-search/?query=hackeast.com&beast=false&tab=domains" target="_blank" rel="noopener">Acquire via Spaceship →</a>
     </div>
   </div>
 
@@ -695,21 +678,15 @@
       <span class="domain-name">HACKJP.COM</span>
       <span class="available-badge">Available</span>
     </div>
+    <span class="category-label cat-security">Security</span>
     <p class="card-pitch">Japan-focused cybersecurity brand. Ideal for a Japanese hacking collective, CTF team, or enterprise security firm entering the APAC market.</p>
     <div class="card-pricing">
       <div class="price-item">
-        <span class="price-label">Buy Now</span>
-        <span class="price-value">$13,000</span>
-      </div>
-      <div class="price-divider"></div>
-      <div class="price-item">
-        <span class="price-label">Lease</span>
-        <span class="price-value">$260<span class="lease-note">/mo</span></span>
-        <span class="lease-note">$250 upfront · 48 mo</span>
+        <span class="price-label">MAKE AN OFFER</span>
       </div>
     </div>
     <div class="card-action">
-      <a class="btn-acquire" href="https://www.hackjp.com" target="_blank" rel="noopener">Acquire via Spaceship →</a>
+      <a class="btn-acquire" href="https://www.spaceship.com/domain-search/?query=hackjp.com&beast=false&tab=domains" target="_blank" rel="noopener">Acquire via Spaceship →</a>
     </div>
   </div>
 
@@ -718,21 +695,15 @@
       <span class="domain-name">HACKLB.COM</span>
       <span class="available-badge">Available</span>
     </div>
+    <span class="category-label cat-security">Security</span>
     <p class="card-pitch">Ideal for a cybersecurity identity. A compact, distinctive domain for a regional security brand, infosec community, or Middle East-focused hacking lab.</p>
     <div class="card-pricing">
       <div class="price-item">
-        <span class="price-label">Buy Now</span>
-        <span class="price-value">$4,500</span>
-      </div>
-      <div class="price-divider"></div>
-      <div class="price-item">
-        <span class="price-label">Lease</span>
-        <span class="price-value">$125<span class="lease-note">/mo</span></span>
-        <span class="lease-note">$250 upfront · 48 mo</span>
+        <span class="price-label">MAKE AN OFFER</span>
       </div>
     </div>
     <div class="card-action">
-      <a class="btn-acquire" href="https://www.hacklb.com" target="_blank" rel="noopener">Acquire via Spaceship →</a>
+      <a class="btn-acquire" href="https://www.spaceship.com/domain-search/?query=hacklb.com&beast=false&tab=domains" target="_blank" rel="noopener">Acquire via Spaceship →</a>
     </div>
   </div>
 
@@ -741,21 +712,15 @@
       <span class="domain-name">HACKPH.COM</span>
       <span class="available-badge">Available</span>
     </div>
+    <span class="category-label cat-security">Security</span>
     <p class="card-pitch">The Philippines' top hacking domain. A natural fit for local CTF organizations, cybersecurity startups, or any Philippine-facing tech security venture.</p>
     <div class="card-pricing">
       <div class="price-item">
-        <span class="price-label">Buy Now</span>
-        <span class="price-value">$1,500</span>
-      </div>
-      <div class="price-divider"></div>
-      <div class="price-item">
-        <span class="price-label">Lease</span>
-        <span class="price-value">$120<span class="lease-note">/mo</span></span>
-        <span class="lease-note">$120 upfront · 24 mo</span>
+        <span class="price-label">MAKE AN OFFER</span>
       </div>
     </div>
     <div class="card-action">
-      <a class="btn-acquire" href="https://www.hackph.com" target="_blank" rel="noopener">Acquire via Spaceship →</a>
+      <a class="btn-acquire" href="https://www.spaceship.com/domain-search/?query=hackph.com&beast=false&tab=domains" target="_blank" rel="noopener">Acquire via Spaceship →</a>
     </div>
   </div>
 
@@ -764,44 +729,33 @@
       <span class="domain-name">HOWTOCTF.COM</span>
       <span class="available-badge">Available</span>
     </div>
+    <span class="category-label cat-security">Security</span>
     <p class="card-pitch">The definitive learning resource domain for Capture The Flag competitions. Built for training platforms, beginner guides, and competitive hacking communities worldwide.</p>
     <div class="card-pricing">
       <div class="price-item">
-        <span class="price-label">Buy Now</span>
-        <span class="price-value">$14,800</span>
-      </div>
-      <div class="price-divider"></div>
-      <div class="price-item">
-        <span class="price-label">Lease</span>
-        <span class="price-value">$370<span class="lease-note">/mo</span></span>
-        <span class="lease-note">$500 upfront · 48 mo</span>
+        <span class="price-label">MAKE AN OFFER</span>
       </div>
     </div>
     <div class="card-action">
-      <a class="btn-acquire" href="https://www.howtoctf.com" target="_blank" rel="noopener">Acquire via Spaceship →</a>
+      <a class="btn-acquire" href="https://www.spaceship.com/domain-search/?query=howtoctf.com&beast=false&tab=domains" target="_blank" rel="noopener">Acquire via Spaceship →</a>
     </div>
   </div>
 
+  <!-- POST-QUANTUM CLUSTER -->
   <div class="card">
     <div class="card-top">
       <span class="domain-name">PQAGENTS.COM</span>
       <span class="available-badge">Available</span>
     </div>
+    <span class="category-label cat-pq">Post-Quantum</span>
     <p class="card-pitch">Post-quantum AI agents — a forward-looking domain for agentic AI platforms built with quantum-resistant cryptography. Prime positioning for the next era of secure automation.</p>
     <div class="card-pricing">
       <div class="price-item">
-        <span class="price-label">Buy Now</span>
-        <span class="price-value">$28,500</span>
-      </div>
-      <div class="price-divider"></div>
-      <div class="price-item">
-        <span class="price-label">Lease</span>
-        <span class="price-value">$635<span class="lease-note">/mo</span></span>
-        <span class="lease-note">$1,000 upfront · 48 mo</span>
+        <span class="price-label">MAKE AN OFFER</span>
       </div>
     </div>
     <div class="card-action">
-      <a class="btn-acquire" href="https://www.pqagents.com" target="_blank" rel="noopener">Acquire via Spaceship →</a>
+      <a class="btn-acquire" href="https://www.spaceship.com/domain-search/?query=pqagents.com&beast=false&tab=domains" target="_blank" rel="noopener">Acquire via Spaceship →</a>
     </div>
   </div>
 
@@ -810,21 +764,15 @@
       <span class="domain-name">PQLOGIN.COM</span>
       <span class="available-badge">Available</span>
     </div>
+    <span class="category-label cat-pq">Post-Quantum</span>
     <p class="card-pitch">Post-quantum login — the definitive brand for a quantum-safe authentication product. Perfect for identity providers building for the post-quantum cryptographic standard era.</p>
     <div class="card-pricing">
       <div class="price-item">
-        <span class="price-label">Buy Now</span>
-        <span class="price-value">$12,500</span>
-      </div>
-      <div class="price-divider"></div>
-      <div class="price-item">
-        <span class="price-label">Lease</span>
-        <span class="price-value">$292<span class="lease-note">/mo</span></span>
-        <span class="lease-note">$500 upfront · 48 mo</span>
+        <span class="price-label">MAKE AN OFFER</span>
       </div>
     </div>
     <div class="card-action">
-      <a class="btn-acquire" href="https://www.pqlogin.com" target="_blank" rel="noopener">Acquire via Spaceship →</a>
+      <a class="btn-acquire" href="https://www.spaceship.com/domain-search/?query=pqlogin.com&beast=false&tab=domains" target="_blank" rel="noopener">Acquire via Spaceship →</a>
     </div>
   </div>
 
@@ -833,67 +781,15 @@
       <span class="domain-name">PQMACHINE.COM</span>
       <span class="available-badge">Available</span>
     </div>
+    <span class="category-label cat-pq">Post-Quantum</span>
     <p class="card-pitch">A powerful domain for quantum computing hardware, post-quantum security infrastructure, or machine learning platforms at the intersection of quantum and AI.</p>
     <div class="card-pricing">
       <div class="price-item">
-        <span class="price-label">Buy Now</span>
-        <span class="price-value">$18,500</span>
-      </div>
-      <div class="price-divider"></div>
-      <div class="price-item">
-        <span class="price-label">Lease</span>
-        <span class="price-value">$427<span class="lease-note">/mo</span></span>
-        <span class="lease-note">$1,500 upfront · 48 mo</span>
+        <span class="price-label">MAKE AN OFFER</span>
       </div>
     </div>
     <div class="card-action">
-      <a class="btn-acquire" href="https://www.pqmachine.com" target="_blank" rel="noopener">Acquire via Spaceship →</a>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-top">
-      <span class="domain-name">SECUREPH.COM</span>
-      <span class="available-badge">Available</span>
-    </div>
-    <p class="card-pitch">The flagship Philippine cybersecurity brand. Commanding and credible — ideal for an enterprise security firm, managed security service provider, or national-level initiative.</p>
-    <div class="card-pricing">
-      <div class="price-item">
-        <span class="price-label">Buy Now</span>
-        <span class="price-value">$50,000</span>
-      </div>
-      <div class="price-divider"></div>
-      <div class="price-item">
-        <span class="price-label">Lease</span>
-        <span class="price-value">$1,125<span class="lease-note">/mo</span></span>
-        <span class="lease-note">$2,500 upfront · 48 mo</span>
-      </div>
-    </div>
-    <div class="card-action">
-      <a class="btn-acquire" href="https://www.secureph.com" target="_blank" rel="noopener">Acquire via Spaceship →</a>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-top">
-      <span class="domain-name">SOVPH.COM</span>
-      <span class="available-badge">Available</span>
-    </div>
-    <p class="card-pitch">Sovereign Philippines — a premium domain for digital sovereignty, government tech, or secure national infrastructure projects in the Philippine tech landscape.</p>
-    <div class="card-pricing">
-      <div class="price-item">
-        <span class="price-label">Buy Now</span>
-        <span class="price-value">$28,000</span>
-      </div>
-      <div class="price-divider"></div>
-      <div class="price-item">
-        <span class="price-label">Lease</span>
-        <span class="price-value">$688<span class="lease-note">/mo</span></span>
-        <span class="lease-note">$2,000 upfront · 48 mo</span>
-      </div>
-    </div>
-    <div class="card-action">
-      <a class="btn-acquire" href="https://www.sovph.com" target="_blank" rel="noopener">Acquire via Spaceship →</a>
+      <a class="btn-acquire" href="https://www.spaceship.com/domain-search/?query=pqmachine.com&beast=false&tab=domains" target="_blank" rel="noopener">Acquire via Spaceship →</a>
     </div>
   </div>
 
@@ -902,21 +798,85 @@
       <span class="domain-name">INSUREPQ.COM</span>
       <span class="available-badge">Available</span>
     </div>
-    <p class="card-pitch">a category-defining 8-letter .com at the intersection of Cyber-Insurance and Post-Quantum Cryptography (PQC). As global mandates (NIST FIPS 203/204) push industries toward quantum-resistant standards, this domain represents the premier brand for Quantum-Safe policy issuance, risk assessment, and cryptographic liability coverage.</p>
+    <span class="category-label cat-pq">Post-Quantum</span>
+    <p class="card-pitch">A category-defining .com at the intersection of cyber-insurance and post-quantum cryptography. As NIST FIPS 203/204 mandates drive adoption of quantum-resistant standards, this domain is primed for quantum-safe policy issuance, risk assessment, and cryptographic liability coverage.</p>
     <div class="card-pricing">
       <div class="price-item">
-        <span class="price-label">Buy Now</span>
-        <span class="price-value">$12,489</span>
-      </div>
-      <div class="price-divider"></div>
-      <div class="price-item">
-        <span class="price-label">Lease</span>
-        <span class="price-value">$388.88<span class="lease-note">/mo</span></span>
-        <span class="lease-note">$500 upfront · 36 mo</span>
+        <span class="price-label">MAKE AN OFFER</span>
       </div>
     </div>
     <div class="card-action">
-      <a class="btn-acquire" href="https://www.insurepq.com" target="_blank" rel="noopener">Acquire via Spaceship →</a>
+      <a class="btn-acquire" href="https://www.spaceship.com/domain-search/?query=insurepq.com&beast=false&tab=domains" target="_blank" rel="noopener">Acquire via Spaceship →</a>
+    </div>
+  </div>
+
+  <!-- PH CLUSTER -->
+  <div class="card">
+    <div class="card-top">
+      <span class="domain-name">SECUREPH.COM</span>
+      <span class="available-badge">Available</span>
+    </div>
+    <span class="category-label cat-security">Security</span>
+    <p class="card-pitch">The flagship Philippine cybersecurity brand. Commanding and credible — ideal for an enterprise security firm, managed security service provider, or national-level initiative.</p>
+    <div class="card-pricing">
+      <div class="price-item">
+        <span class="price-label">MAKE AN OFFER</span>
+      </div>
+    </div>
+    <div class="card-action">
+      <a class="btn-acquire" href="https://www.spaceship.com/domain-search/?query=secureph.com&beast=false&tab=domains" target="_blank" rel="noopener">Acquire via Spaceship →</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-top">
+      <span class="domain-name">SOVPH.COM</span>
+      <span class="available-badge">Available</span>
+    </div>
+    <span class="category-label cat-security">Security</span>
+    <p class="card-pitch">Sovereign Philippines — a premium domain for digital sovereignty, government tech, or secure national infrastructure projects in the Philippine tech landscape.</p>
+    <div class="card-pricing">
+      <div class="price-item">
+        <span class="price-label">MAKE AN OFFER</span>
+      </div>
+    </div>
+    <div class="card-action">
+      <a class="btn-acquire" href="https://www.spaceship.com/domain-search/?query=sovph.com&beast=false&tab=domains" target="_blank" rel="noopener">Acquire via Spaceship →</a>
+    </div>
+  </div>
+
+  <!-- AVIATION CLUSTER -->
+  <div class="card">
+    <div class="card-top">
+      <span class="domain-name">VOLTAIRLINES.COM</span>
+      <span class="available-badge">Available</span>
+    </div>
+    <span class="category-label cat-aviation">Aviation</span>
+    <p class="card-pitch">A prestigious, category-defining .com domain that is a definitive digital asset for a premium electric carrier, sustainable travel startup, or next-generation aerospace venture aiming to lead the zero-emission flight revolution with elegance and ambition.</p>
+    <div class="card-pricing">
+      <div class="price-item">
+        <span class="price-label">MAKE AN OFFER</span>
+      </div>
+    </div>
+    <div class="card-action">
+      <a class="btn-acquire" href="https://www.voltairlines.com" target="_blank" rel="noopener">Acquire via Spaceship →</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-top">
+      <span class="domain-name">VOLTAIRLINE.COM</span>
+      <span class="available-badge">Available</span>
+    </div>
+    <span class="category-label cat-aviation">Aviation</span>
+    <p class="card-pitch">A prestigious, category-defining .com domain that is a definitive digital asset for a premium electric carrier, sustainable travel startup, or next-generation aerospace venture aiming to lead the zero-emission flight revolution with elegance and ambition. Paired with voltairlines.com</p>
+    <div class="card-pricing">
+      <div class="price-item">
+        <span class="price-label">MAKE AN OFFER</span>
+      </div>
+    </div>
+    <div class="card-action">
+      <a class="btn-acquire" href="https://www.voltairline.com" target="_blank" rel="noopener">Acquire via Spaceship →</a>
     </div>
   </div>
 
